@@ -1,16 +1,21 @@
 import LayoutGeneral.GeneralLayout;
+import ListadoEmail.ListadoEmailsPanel;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class MainFrame {
 
-    private JFrame Main_frame;
-    private JPanel Main_frame_panel;
-    private JPanel Main_frame_panel_menu;
-    private JPanel Listado_emails_panel;
-    private GeneralLayout Main_frame_gridBagLayout;
-    private CardLayout Main_panel_card_layout;
+    private JFrame mainFrame;
+    private JPanel mainFramePanel;
+    private JPanel mainFrameButtonsPanel;
+    private GeneralLayout mainFrameGridBagLayout;
+    private CardLayout mainPanelCardLayout;
+
+    final static String BUTTONPANEL = "BUTTONPANEL";
+    final static String LISTADOEMAILS = "LISTADOEMAILS";
+
+    private ListadoEmailsPanel listadoEmailsPanel;
 
     private JButton button_emails;
     private JButton button2;
@@ -24,22 +29,27 @@ public class MainFrame {
 
     public MainFrame(){
 
-        Main_frame = new JFrame("TESIREPORTS");
-        Main_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Main_panel_card_layout = new CardLayout();
-        Main_frame_gridBagLayout = new GeneralLayout();
-        Main_frame_panel = new JPanel(Main_panel_card_layout);
-        Main_frame_panel_menu = new JPanel(Main_frame_gridBagLayout.getGridBagLayout());
-        button_emails = new JButton("LISTADO EMAILS");
+        mainFrame = new JFrame("TESIREPORTS");
+        mainFrame.setSize(500,300);
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainFrame.setLocationRelativeTo(null);
+        mainPanelCardLayout = new CardLayout();
+        mainFrameGridBagLayout = new GeneralLayout();
+        mainFramePanel = new JPanel(mainPanelCardLayout);
+        mainFrameButtonsPanel = new JPanel(mainFrameGridBagLayout.getGridBagLayout());
+        button_emails = new JButton("LISTADOEMAILS");
+
+        listadoEmailsPanel = new ListadoEmailsPanel();
 
 
-        Main_frame_gridBagLayout.setPosition(0,1);
-        Main_frame_panel_menu.add(button_emails, Main_frame_gridBagLayout.getGridBagConstraints());
-        Main_frame_panel.add(Main_frame_panel_menu);
+        mainFrameGridBagLayout.setPosition(0,1);
+        mainFrameButtonsPanel.setBackground(Color.BLUE);
+        mainFrameButtonsPanel.add(button_emails, mainFrameGridBagLayout.getGridBagConstraints());
+        mainFramePanel.add(mainFrameButtonsPanel, BUTTONPANEL);
+        mainFramePanel.add(listadoEmailsPanel.getPanel(), LISTADOEMAILS);
 
-
-        Main_frame.add(Main_frame_panel);
-        Main_frame.setVisible(true);
+        mainFrame.add(mainFramePanel);
+        mainFrame.setVisible(true);
 
 
 
@@ -48,8 +58,23 @@ public class MainFrame {
 
     public void controllerConection(ControladorMainFrame controladorMainFrame){
 
+        button_emails.addActionListener(controladorMainFrame);
+        button_emails.setActionCommand("LISTADOEMAILS");
 
     }
+
+    public CardLayout getMainPanelCardLayout(){
+        return mainPanelCardLayout;
+    }
+    public JPanel getMainFramePanel(){
+        return mainFramePanel;
+    }
+
+    public JFrame getMainFrame(){
+        return mainFrame;
+    }
+
+
 
 
 

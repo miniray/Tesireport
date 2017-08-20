@@ -16,5 +16,17 @@ public class ControladorMainFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
 
+        String actionCommand = e.getActionCommand();
+
+        switch(actionCommand){
+
+            case "LISTADOEMAILS":
+                mainFrame.getMainFrame().setSize(500,200);
+                mainFrame.getMainPanelCardLayout().show(mainFrame.getMainFramePanel(), "LISTADOEMAILS");
+
+                //mainFrame.getMainPanelCardLayout().next(mainFrame.getMainFramePanel());
+
+        }
+
     }
 }

@@ -23,7 +23,10 @@ public class GeneralLayout {
         gridBagConstraints.gridy = 0; // El área de texto empieza en la fila cero
         gridBagConstraints.gridwidth = 1; // El área de texto ocupa 1 columna.
         gridBagConstraints.gridheight = 1; // El área de texto ocupa 1 filas.
-        gridBagConstraints.anchor= GridBagConstraints.NORTH;
+        gridBagConstraints.anchor= GridBagConstraints.NORTHWEST;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.weighty = 0;
+        gridBagConstraints.weightx = 0;
 
     }
 
@@ -40,6 +43,21 @@ public class GeneralLayout {
         gridBagConstraints.gridwidth = yd;
 
     }
+
+    public void setColumnWeights(double[] values){
+        gridBagLayout.columnWeights = values;
+    }
+
+    public void setRowWeights(double[] values){
+        gridBagLayout.rowWeights = values;
+    }
+
+    public void setWeightXY(int x, int y){
+        gridBagConstraints.weighty = x;
+        gridBagConstraints.weightx = y;
+    }
+
+
 
     public GridBagLayout getGridBagLayout(){
         return gridBagLayout;
