@@ -1,3 +1,5 @@
+import LayoutGeneral.GeneralLayout;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -6,8 +8,8 @@ public class MainFrame {
     private JFrame Main_frame;
     private JPanel Main_frame_panel;
     private JPanel Main_frame_panel_menu;
-    private GridBagLayout Main_frame_gridBagLayout;
-    private GridBagConstraints Main_frame_constraints;
+    private JPanel Listado_emails_panel;
+    private GeneralLayout Main_frame_gridBagLayout;
     private CardLayout Main_panel_card_layout;
 
     private JButton button_emails;
@@ -24,29 +26,15 @@ public class MainFrame {
 
         Main_frame = new JFrame("TESIREPORTS");
         Main_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         Main_panel_card_layout = new CardLayout();
-        Main_frame_gridBagLayout = new GridBagLayout();
-
+        Main_frame_gridBagLayout = new GeneralLayout();
         Main_frame_panel = new JPanel(Main_panel_card_layout);
-        Main_frame_panel_menu = new JPanel(Main_frame_gridBagLayout);
-
-        button_emails = new JButton("EMAILS");
-
+        Main_frame_panel_menu = new JPanel(Main_frame_gridBagLayout.getGridBagLayout());
+        button_emails = new JButton("LISTADO EMAILS");
 
 
-
-
-        Main_frame_constraints.gridx = 0; // El área de texto empieza en la columna cero.
-        Main_frame_constraints.gridy = 0; // El área de texto empieza en la fila cero
-        Main_frame_constraints.gridwidth = 1; // El área de texto ocupa dos columnas.
-        Main_frame_constraints.gridheight = 1; // El área de texto ocupa 2 filas.
-
-
-        Main_frame_panel_menu.add(button_emails, Main_frame_constraints);
-
-
-        Main_frame_panel.setBackground(Color.CYAN);
+        Main_frame_gridBagLayout.setPosition(0,1);
+        Main_frame_panel_menu.add(button_emails, Main_frame_gridBagLayout.getGridBagConstraints());
         Main_frame_panel.add(Main_frame_panel_menu);
 
 
@@ -58,6 +46,10 @@ public class MainFrame {
 
     }
 
+    public void controllerConection(ControladorMainFrame controladorMainFrame){
+
+
+    }
 
 
 
