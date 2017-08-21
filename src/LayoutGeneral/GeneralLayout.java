@@ -1,4 +1,4 @@
-package LayoutGeneral;
+package src.LayoutGeneral;
 
 import java.awt.*;
 

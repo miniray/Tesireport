@@ -1,13 +1,13 @@
-package ListadoEmail;
+package src.ListadoEmail;
 
 import javax.swing.*;
 
-import LayoutGeneral.GeneralLayout;
+import src.LayoutGeneral.*;
 import com.toedter.calendar.JDateChooser;
+import src.MAINWINDOW.ControladorMainFrame;
+import src.MAINWINDOW.MainFrame;
 
 import java.awt.*;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class ListadoEmailsPanel {
@@ -97,4 +97,20 @@ public class ListadoEmailsPanel {
     public JPanel getPanel(){
         return listado_emails_panel;
     }
-}
+
+    public void controlerConnection(ControladorListadoEmails controladorListadoEmails){
+
+        jButton_excel.addActionListener(controladorListadoEmails);
+        jButton_pantalla.addActionListener(controladorListadoEmails);
+
+
+        jButton_excel.setActionCommand("EXCEL");
+        jButton_pantalla.setActionCommand("PANTALLA");
+
+    }
+
+    public void controlerConnectionVolver(ControladorMainFrame controladorMainFrame){
+        jButton_volver.addActionListener(controladorMainFrame);
+        jButton_volver.setActionCommand("VOLVER");
+    }
+        }

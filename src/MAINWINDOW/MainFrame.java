@@ -1,5 +1,6 @@
-import LayoutGeneral.GeneralLayout;
-import ListadoEmail.ListadoEmailsPanel;
+package src.MAINWINDOW;
+import src.LayoutGeneral.GeneralLayout;
+import src.ListadoEmail.ListadoEmailsPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -72,6 +73,10 @@ public class MainFrame {
 
     public JFrame getMainFrame(){
         return mainFrame;
+    }
+
+    public ListadoEmailsPanel getListadoEmailsPanel(){
+        return listadoEmailsPanel;
     }
 
 
