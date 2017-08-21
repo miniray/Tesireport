@@ -16,11 +16,16 @@ public class SQLConnection {
     Connection con;
     //"jdbc:sqlserver://localhost:1433;databaseName=AdventureWorks;user=UserName;password=*****";
 
-    public SQLConnection() {
+    public SQLConnection(String connectionUrl, String IP, String dataBaseName, String user, String password) {
 
         con = null;
         Statement stmt = null;
         ResultSet rs = null;
+        this.connectionUrl = connectionUrl;
+        this.IP = IP;
+        this.dataBaseName = dataBaseName;
+        this.user = user;
+        this.password = password;
 
     }
 

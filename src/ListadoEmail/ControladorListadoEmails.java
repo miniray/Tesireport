@@ -1,5 +1,7 @@
 package src.ListadoEmail;
 
+import src.SQL.SQLConnection;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,10 +11,12 @@ import java.awt.event.ActionListener;
 public class ControladorListadoEmails implements ActionListener {
 
     ListadoEmailsPanel listadoEmailsPanel;
+    SQLConnection connection;
 
-    public ControladorListadoEmails(ListadoEmailsPanel listadoEmailsPanel){
+    public ControladorListadoEmails(ListadoEmailsPanel listadoEmailsPanel, SQLConnection connection){
 
         this.listadoEmailsPanel = listadoEmailsPanel;
+        this.connection = connection;
 
     }
 

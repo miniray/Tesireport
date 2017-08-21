@@ -1,6 +1,7 @@
 package src.MAINWINDOW;
 
 import src.ListadoEmail.ControladorListadoEmails;
+import src.SQL.SQLConnection;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,12 +10,14 @@ public class ControladorMainFrame implements ActionListener {
 
     private MainFrame mainFrame;
     private ControladorListadoEmails controladorListadoEmails;
+    private SQLConnection connection;
 
 
     public ControladorMainFrame(MainFrame mainFrame){
 
         this.mainFrame = mainFrame;
-        controladorListadoEmails = new ControladorListadoEmails(mainFrame.getListadoEmailsPanel());
+        SQLConnection connection = new SQLConnection("","","","","");
+        controladorListadoEmails = new ControladorListadoEmails(mainFrame.getListadoEmailsPanel(), connection);
     }
 
 
