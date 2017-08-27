@@ -4,8 +4,7 @@ import javax.swing.*;
 
 import src.LayoutGeneral.*;
 import com.toedter.calendar.JDateChooser;
-import src.MAINWINDOW.ControladorMainFrame;
-import src.MAINWINDOW.MainFrame;
+import src.MainWindow.ControladorMainFrame;
 
 import java.awt.*;
 import java.util.Date;

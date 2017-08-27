@@ -39,8 +39,8 @@ public class GeneralLayout {
 
     public void setSize(int xd, int yd){
 
-        gridBagConstraints.gridheight = xd;
-        gridBagConstraints.gridwidth = yd;
+        gridBagConstraints.gridheight = yd;
+        gridBagConstraints.gridwidth = xd;
 
     }
 
@@ -53,8 +53,8 @@ public class GeneralLayout {
     }
 
     public void setWeightXY(int x, int y){
-        gridBagConstraints.weighty = x;
-        gridBagConstraints.weightx = y;
+        gridBagConstraints.weighty = y;
+        gridBagConstraints.weightx = x;
     }
 
 

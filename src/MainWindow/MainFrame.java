@@ -1,4 +1,4 @@
-package src.MAINWINDOW;
+package src.MainWindow;
 import src.LayoutGeneral.GeneralLayout;
 import src.ListadoEmail.ListadoEmailsPanel;
 
@@ -50,7 +50,7 @@ public class MainFrame {
         mainFramePanel.add(listadoEmailsPanel.getPanel(), LISTADOEMAILS);
 
         mainFrame.add(mainFramePanel);
-        mainFrame.setVisible(true);
+        mainFrame.setVisible(false);
 
 
 

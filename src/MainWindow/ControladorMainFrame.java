@@ -1,4 +1,4 @@
-package src.MAINWINDOW;
+package src.MainWindow;
 
 import src.ListadoEmail.ControladorListadoEmails;
 import src.SQL.SQLConnection;
