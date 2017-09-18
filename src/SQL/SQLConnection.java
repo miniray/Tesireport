@@ -8,7 +8,7 @@ import java.sql.*;
  */
 public class SQLConnection {
 
-    String connectionUrl = "";
+    String connectionUrl = "jdbc:sqlserver://";
     String IP = "" ;
     String dataBaseName = "";
     String user = "";
@@ -16,12 +16,11 @@ public class SQLConnection {
     Connection con;
     //"jdbc:sqlserver://localhost:1433;databaseName=AdventureWorks;user=UserName;password=*****";
 
-    public SQLConnection(String connectionUrl, String IP, String dataBaseName, String user, String password) {
+    public SQLConnection( String IP, String dataBaseName, String user, String password) {
 
         con = null;
         Statement stmt = null;
         ResultSet rs = null;
-        this.connectionUrl = connectionUrl;
         this.IP = IP;
         this.dataBaseName = dataBaseName;
         this.user = user;
@@ -29,8 +28,21 @@ public class SQLConnection {
 
     }
 
+    public SQLConnection(){}
+
+    public void setConnection(String [] server){
+        con = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        this.IP = server[0];
+        this.dataBaseName = server[1];
+        this.user = server[2];
+        this.password = server[3];
+
+    }
+
     private String getConnectionUrl(){
-        return (connectionUrl+IP+ ";databaseName=" + dataBaseName + ";user=" + user + ";password=" + password );
+        return (connectionUrl+"localhost:" + IP+ ";databaseName=" + dataBaseName + ";user=" + user + ";password=" + password );
     }
     public void openConnection() {
         try {
@@ -39,8 +51,10 @@ public class SQLConnection {
             con = DriverManager.getConnection(getConnectionUrl());
         } catch (ClassNotFoundException e1) {
             e1.printStackTrace();
+            System.out.println(e1.getCause());
         } catch (SQLException e1) {
             e1.printStackTrace();
+            System.out.println(e1.getCause());
         }
     }
 

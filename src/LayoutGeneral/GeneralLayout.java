@@ -48,6 +48,10 @@ public class GeneralLayout {
         gridBagLayout.columnWeights = values;
     }
 
+    public void setColumnWidth(int[] values){
+        gridBagLayout.columnWidths = values;
+    }
+
     public void setRowWeights(double[] values){
         gridBagLayout.rowWeights = values;
     }

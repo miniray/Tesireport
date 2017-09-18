@@ -10,8 +10,8 @@ import java.awt.event.ActionListener;
  */
 public class ControladorListadoEmails implements ActionListener {
 
-    ListadoEmailsPanel listadoEmailsPanel;
-    SQLConnection connection;
+    private ListadoEmailsPanel listadoEmailsPanel;
+    private SQLConnection connection;
 
     public ControladorListadoEmails(ListadoEmailsPanel listadoEmailsPanel, SQLConnection connection){
 

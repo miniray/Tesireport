@@ -31,13 +31,16 @@ public class LoginFrame implements ActionListener {
         loginFrame = new JFrame("INICIAR SESION");
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         loginFrame.setLocationRelativeTo(null);
-        loginFrame.setSize(400, 100);
+        loginFrame.setSize(480, 120);
+
+
+
         loginFrame.setVisible(true);
 
         generalLayout = new GeneralLayout();
         loginPanel = new JPanel(generalLayout.getGridBagLayout());
 
-        loginPanel.setMinimumSize(new Dimension(370,90));
+        //loginPanel.setMinimumSize(new Dimension(370,90));
 
         loginFrame.add(loginPanel);
 
@@ -47,12 +50,13 @@ public class LoginFrame implements ActionListener {
         passwordText = new JTextField();
         aceptar_button = new JButton("ACEPTAR");
 
+        /*
         passwordLabel.setMinimumSize(new Dimension(30,10));
         userLabel.setMinimumSize(new Dimension(30,10));
         userText.setMinimumSize(new Dimension(30,10));
         passwordText.setMinimumSize(new Dimension(30,10));
         aceptar_button.setMinimumSize(new Dimension (30, 60));
-
+*/
 
         double[] columnWeight = {0.2, 1.0, 0.5};
         generalLayout.setColumnWeights(columnWeight);
@@ -63,11 +67,12 @@ public class LoginFrame implements ActionListener {
         loginPanel.add(passwordLabel, generalLayout.getGridBagConstraints());
 
         generalLayout.setPosition(1, 0);
+        generalLayout.setWeightXY(2,1);
         loginPanel.add(userText, generalLayout.getGridBagConstraints());
         generalLayout.setPosition(1, 1);
         loginPanel.add(passwordText, generalLayout.getGridBagConstraints());
 
-
+        generalLayout.resetGeneralLayoutConstraints();
         generalLayout.setPosition(2, 0);
         generalLayout.setSize(1, 2);
         loginPanel.add(aceptar_button, generalLayout.getGridBagConstraints());
@@ -88,6 +93,7 @@ public class LoginFrame implements ActionListener {
 
                 if (checkUser()) {
                     mainFrame.getMainFrame().setVisible(true);
+                    loginFrame.setVisible(false);
                 }
                 break;
 
